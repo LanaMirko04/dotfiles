@@ -1,0 +1,110 @@
+/*
+ * TODO: variabili css specifiche del tema in file esterno
+ * */
+
+* {
+    font-family: "JetBrains Mono Nerd Font";
+    font-weight: bold;
+    font-size: 14px;
+}
+
+tooltip {
+    background: #282828;
+    border: 2px solid #ebdbb2;
+}
+
+tooltip label {
+    color: #ebdbb2;
+}
+
+window#waybar {
+    background: #282828;
+    color: #ebdbb2;
+    border: 2px solid #ebdbb2;
+    border-radius: 4px;
+}
+
+#workspaces {
+    background: none;
+    color: #ebdbb2;
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 0;
+    transition: unset;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#workspaces button {
+    background: none;
+    color: #ebdbb2;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    border-radius: 0;
+    transition: unset;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#workspaces button label {
+    font-size: 1.25em;
+}
+
+#workspaces button.active {
+    color: #ebdbb2;
+    border: none;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#workspaces button:hover {
+    background: none;
+    color: #ebdbb2;
+    border: none;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#clock {
+    background: none;
+    color: #ebdbb2;
+    /*font-size: 1.15em;*/
+    /*padding-left: 10px;*/
+    /*padding-right: 10px;*/
+    border: none;
+}
+
+#pulseaudio{
+    font-weight: normal;
+    color: #ebdbb2;
+    background: none;
+    margin: 0;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+#backlight-slider slider,
+#pulseaudio-slider slider {
+    min-height: 0;
+    min-width: 0;
+    opacity: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+  min-width: 80px;
+  min-height: 10px;
+  border-radius: 8px;
+  border: 1px solid #ebdbb2;
+  background: #282828;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+  border-radius: 8px;
+  border: 2px solid #ebdbb2;
+  background-color: #ebdbb2;
+}

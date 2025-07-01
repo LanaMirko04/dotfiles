@@ -19,21 +19,23 @@ install_packages() {
         zathura-pdf-mupdf 
         telegram-desktop
         thunderbird
-        pcmanfm
+        dolphin
         tectonic
+        wl-clipboard
+        ripgrep
         hyprland
         hyprutils
         hypridle
         hyprlock
         hyprpaper
-        hyprpicker
+        hyprshot
         xdg-desktop-portal-hyprland
     )
 
     sudo pacman -S --noconfirm "${packages[@]}"
 
     aur_packages=(
-        #paru
+        paru
         wayshot
         zen-browser-bin
     )
@@ -58,13 +60,17 @@ setup_dotfiles() {
     echo "Creating symlinks..."
 
     # Configurations
-    ln -sf "$DOTFILES_DIR/config/fish" ~/.config/fish
-    ln -sf "$DOTFILES_DIR/config/hypr" ~/.config/hypr
-    ln -sf "$DOTFILES_DIR/config/kitty" ~/.config/kitty
-    ln -sf "$DOTFILES_DIR/config/mako" ~/.config/mako
-    ln -sf "$DOTFILES_DIR/config/mpd" ~/.config/mpd
-    ln -sf "$DOTFILES_DIR/config/nvim" ~/.config/nvim
-    ln -sf "$DOTFILES_DIR/config/waybar" ~/.config/waybar
+    CONFIG_DIRS=("$DOTFILES_DIR/config/"*/)
+    for dir_path in "${CONFIG_DIRS[@]}"; do
+        dir_name=$(basename "$dir_path")
+        
+        if [ ! -e ~/.config/"$dir_name" ]; then
+            ln -sf "$dir_path" "~/.config/$dir_name"
+            echo "Created symlink for $dir_name"
+        else
+            echo "Symlink for $config_name already exists. Skipping creation."
+        fi
+    done   
 
     # Themes, cursors, wallpapers, etc...
     ln -sf "$DOTFILES_DIR/wallpapers" ~/Pictures/Wallpapers
@@ -72,8 +78,8 @@ setup_dotfiles() {
     echo "Dotfiles setup complete!"
 }
 
-echo "Starting setup..."
-install_packages
+echo "Installing dotfiles..."
+# install_packages
 setup_dotfiles
 
-echo "Setup complete!"
+echo "Dotfiles installation complete!"

@@ -1,0 +1,14 @@
+configuration {
+    show-icons: false;
+    font: "JetBrainsMono Nerd Font 12";
+
+    // display-ssh:    "󰣀 ssh:";
+    display-run:    "󱓞 run:";
+    display-drun:   "󰣖 drun:";
+    display-window: "󱂬 window:";
+    display-calc: "󰪚 window:";
+
+    dpi: 120;
+}
+
+@theme "gruvbox"

@@ -23,6 +23,8 @@ install_packages() {
         tectonic
         wl-clipboard
         ripgrep
+        rofi-wayland
+        rofi-calc
         hyprland
         hyprutils
         hypridle
@@ -35,8 +37,6 @@ install_packages() {
     sudo pacman -S --noconfirm "${packages[@]}"
 
     aur_packages=(
-        paru
-        wayshot
         zen-browser-bin
     )
 
@@ -65,7 +65,7 @@ setup_dotfiles() {
         dir_name=$(basename "$dir_path")
         
         if [ ! -e ~/.config/"$dir_name" ]; then
-            ln -sf "$dir_path" "~/.config/$dir_name"
+            ln -sf "$dir_path" ~/.config/"$dir_name"
             echo "Created symlink for $dir_name"
         else
             echo "Symlink for $config_name already exists. Skipping creation."
